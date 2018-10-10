@@ -11,6 +11,10 @@ const port = 3000;
 //Inicializando el app
 const app = express();
 
+//middleware de bodyparser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 //Server start
 app.listen(port, () => {
     console.log('Server started on port ' + port);
@@ -26,23 +30,21 @@ db.on('error', err => {
     console.log(err)
 }) 
 
-let User = require('./models/user.model');
+let User = require('./models/user.model');``
 
 //Cargar los archivos html para poder utilizarlos
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
-//Importando los route files
-// let users = require('./routes/user.route');
-// app.use('/users', users);
-
-//middleware de bodyparser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 //Seteando el public folder para que estén disponibles los archivos de css, js etc..
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Importando los route files
+const users = require('./routes/user.route');
+app.use('/users', users);
+
 
 //Ruta del home page
 app.get('/', (req, res) => {
