@@ -34,8 +34,8 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 //Importando los route files
-let users = require('./routes/user.route');
-app.use('/users', users);
+// let users = require('./routes/user.route');
+// app.use('/users', users);
 
 //middleware de bodyparser
 app.use(bodyParser.json());
