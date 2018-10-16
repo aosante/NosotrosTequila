@@ -1,16 +1,26 @@
-let didScroll;
-let scrollTop = 0;
-let delta = 3;
-let navHeight = $('ul').outerHeight();
+//function to hide the navbar on scroll
+    let previousPos = window.pageYOffset;
+    window.onscroll = function() {
+        
+        let currentPos = window.pageYOffset;
+        if(previousPos > currentPos) {
+            document.querySelector('.nav-ul').style.top = "-20px";
+        } else {
+            document.querySelector('.nav-ul').style.top = "-100px";
+        }
+        previousPos = currentPos
+    }
+
 
 $(document).ready(function() {
-    //hamburger menu function
+    //hamburger menu class-toggle function
     $('.nav-toggle').click(function() {
         $('.nav-ul').toggleClass('nav-open', 500);
         $(this).toggleClass('open');   
     });
     $(window).scroll(function() {
         parallax();
+        parralax2();
     });
 
     //parallax effect
@@ -18,45 +28,13 @@ $(document).ready(function() {
         let scroll = $(window).scrollTop();
         $('.parallax--bg').css('background-position', 'center ' + (scroll*0.45) + 'px');
     }
-
-
-
-//function to hide nav when scrolling
-let didScroll = false;
-
-    $(window).scroll(function(event){
-        didScroll = true;
-    });
-    
-    setInterval(function() {
-        if (didScroll) {
-            scroll();
-            didScroll = false;
-        }
-    }, 150);
-
-    const scroll = () => {
-        //st es la distancia que hay entre el navbar y la parte de arriba del window 
-        let st = $(this).scrollTop();
-        //asegurarse que se ha hecho scroll mas que delta
-        if(Math.abs(scrollTop - st) <= delta)
-            return;
-        //si haciendo scroll ya se pasó el navbar, se agrega la clase nav-up
-        if (st > scrollTop && st > navHeight){
-            //Scroll hacia abajo
-            $('ul').removeClass('nav-ul').addClass('nav-up');
-        } else {
-            // Scroll Up
-            if(st + $(window).height() < $(document).height()) {
-                $('ul').removeClass('nav-up').addClass('nav-ul');
-            }
-        }
-        
-        scrollTop = st;
-
+    //parallax for second background image
+    function parralax2() {
+        let scroll = $(window).scrollTop();
+        $('.parallax--2').css('background-position', 'center ' + (scroll*0.03 -50) + 'px');
     }
-
 });
+
 
 //function for sliding images
 function debounce(func, wait = 40, immediate = true) { //hace que el evento scroll no se dispare demasiadas veces

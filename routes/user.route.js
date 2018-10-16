@@ -20,7 +20,6 @@ router.post('/add', (req, res) => {
            return;
        } else {
             res.redirect('/');
-            console.log('Successful registration!!');
        }
     });
 });

@@ -88,7 +88,7 @@
         <!-- Section-C -->
         <section id="section-c">
             <div class="content-wrap">
-                <div class="section-c-img"></div>
+                <div class="section-c-img parallax--2"></div>
                 <h2 class="content-title">What began as a school project, materialized our dream</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tenetur pariatur, nemo inventore
                     doloribus, odio voluptas, deleniti aliquid fuga sunt quasi distinctio praesentium accusamus? Harum corrupti
@@ -102,7 +102,7 @@
                 <div class="wrapper">
                     <h2 class="content-title contact" id="contact">Contact Us</h2>
                     <!-- ADD ACTION AND METHOD ATTRIBUTES -->
-                    <form id="form" method="POST" action=/users/add>
+                    <form id="form" method="POST" onsubmit="register()" action=/users/add>
                         <p>
                             <label for="name">Name</label>
                             <input class="input" type="text" id="name" placeholder="Enter your name" required autocomplete="name" name="first_name">
@@ -119,7 +119,7 @@
                             <label for="message">How can we help you?</label>
                             <textarea class="input" id="message" rows="9" required name="comment"></textarea>
                         </p>
-                        <button type="submit" class="btn" id="btnSubmit">Submit</button>
+                        <button type="button" class="btn" id="btnSubmit">Submit</button>
                     </form>
                 </div>
             </div>
@@ -149,6 +149,7 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/validation.js"></script>
     
 </body>
 

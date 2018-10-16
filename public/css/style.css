@@ -47,7 +47,7 @@ nav ul {
     width: 100%;
     position: absolute;
     background: #000;
-    opacity: .89;
+    /* opacity: .89; */
     top: -1em;
     display: flex;
     flex-direction: column;
@@ -408,6 +408,8 @@ img {
 
 /*media quieries*/
 
+
+
 @media (min-width: 770px) {
 
     .nav-up {
@@ -443,7 +445,7 @@ img {
         position: fixed;
         flex-direction: row;
         clip-path: circle(150% at top right);
-        background: rgba(21, 21, 21, 0.8); 
+        background: #000; 
         height: 4em;
         transition: top 0.2s ease-in-out;
         width: 100%;
@@ -476,6 +478,7 @@ img {
         justify-content: center;
         align-content: center;
         color: #fff;
+        height: 30%;
     }
 
     #section-c h2 {
@@ -548,6 +551,17 @@ img {
 
 }
 
+@media(max-width: 1400px) {
+    #section-c {
+        position: relative;
+        height: 35em;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    
+}
+
 /*Slide in on scroll for images*/
 
   .slide-in {
@@ -566,3 +580,9 @@ img {
     opacity:1;
     transform:translateX(0%) scale(1);
   }
+
+  .error {
+      border: 2px solid red
+  }
+
+  
