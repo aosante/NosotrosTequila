@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const engines = require('consolidate');
 
 const MONGODB_URI =
   process.env.MONGODB_URI ||
@@ -42,7 +43,8 @@ let User = require('./models/user.model');
 
 //Cargar los archivos html para poder utilizarlos
 app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('ejs').renderFile);
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 
 //Seteando el public folder para que estén disponibles los archivos de css, js etc..
 app.use(express.static(path.join(__dirname, 'public')));

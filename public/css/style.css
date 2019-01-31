@@ -263,11 +263,11 @@ img {
 
 #section-d .wrapper {
   position: relative;
-  bottom: 2.7em;
+  bottom: 2.1em;
 }
 
 #section-d .box:first-child {
-  background: #396c8c;
+  background: #bebec1;
 }
 
 #section-d form button {
@@ -322,6 +322,16 @@ img {
 @media (max-width: 770px) {
   #section-d #form label {
     margin-bottom: 0.3em;
+  }
+
+  #section-d #form {
+    background-color: red;
+    margin-bottom: 10em;
+    border: 2px solid blue;
+  }
+  #section-d #btnSubmit {
+    position: relative;
+    bottom: 1em;
   }
 }
 
