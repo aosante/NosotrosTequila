@@ -325,9 +325,7 @@ img {
   }
 
   #section-d #form {
-    background-color: red;
     margin-bottom: 10em;
-    border: 2px solid blue;
   }
   #section-d #btnSubmit {
     position: relative;
